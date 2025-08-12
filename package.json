@@ -1,0 +1,18 @@
+{
+  "name": "math-tutor-netlify-backend",
+  "version": "1.0.0",
+  "description": "Netlify function for the math tutor chatbot.",
+  "dependencies": {
+    "@google/generative-ai": "^0.1.3"
+  }
+},
+"engines": {
+  "node": "20.x"
+}
+
+"scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview"
+}
+
