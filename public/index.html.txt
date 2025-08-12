@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRO級吳老師數學家教</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- 引入 KaTeX (數學公式渲染) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" xintegrity="sha384-n8MVd4RsNIU0KOVEMea+UhfbEHJwh9dPiGNJdZh/FAULOcnOhlDcnZq9qfkdMIxKO" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" xintegrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" xintegrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+    <!-- 引入 Marked.js (Markdown 轉 HTML) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        .chat-bubble { max-width: 85%; padding: 12px 18px; border-radius: 20px; word-wrap: break-word; line-height: 1.7; }
+        .user-bubble { background-color: #2563eb; color: white; border-bottom-right-radius: 4px; }
+        .bot-bubble { background-color: #4b5563; color: white; border-bottom-left-radius: 4px; }
+        .error-bubble { background-color: #b91c1c; }
+        .katex { font-size: 1.1em; }
+        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        #image-upload-input { display: none; }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-2xl h-[85vh] mx-auto flex flex-col bg-white shadow-2xl rounded-2xl">
+        <header class="border-b border-gray-200 p-4">
+            <h1 class="text-2xl font-bold text-center text-gray-800">PRO級吳老師數學家教</h1>
+        </header>
+        <main id="chat-container" class="flex-1 overflow-y-auto p-6 space-y-6">
+            <div class="flex justify-start">
+                <div class="chat-bubble bot-bubble">
+                    <p>你好！我是吳老師，你的PRO級數學家教。有什麼數學問題，儘管問我吧！</p>
+                </div>
+            </div>
+        </main>
+        <footer class="p-4 border-t border-gray-200 bg-gray-50 rounded-b-2xl">
+            <div id="image-preview-container" class="mb-2 hidden items-center">
+                <img id="image-preview" src="" alt="上傳的圖片" class="max-h-20 rounded-md mr-2">
+                <span id="image-filename" class="text-sm text-gray-500"></span>
+                <button id="remove-image-btn" class="ml-auto text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <form id="chat-form" class="flex items-center space-x-3">
+                <label for="image-upload-input" class="p-3 bg-gray-200 hover:bg-gray-300 rounded-full cursor-pointer transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+                </label>
+                <input type="file" id="image-upload-input" accept="image/*" capture="environment">
+                <input type="text" id="user-input" placeholder="輸入問題，或上傳圖片..." class="flex-1 p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none transition" autocomplete="off">
+                <button type="submit" id="submit-btn" class="p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+            </form>
+        </footer>
+    </div>
+    <!-- 引入我們的 JavaScript 檔案 -->
+    <script src="/script.js"></script>
+</body>
+</html>
